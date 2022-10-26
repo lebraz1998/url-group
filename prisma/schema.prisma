@@ -1,0 +1,33 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/client"
+
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:../database/database.db"
+
+}
+
+model News {
+  id              Int       @id @default(autoincrement())
+  title           String?
+  description     String?
+  url             String?   @unique
+  author          String?
+  image           String?
+  video           String?
+  date            DateTime?
+  logo            String?
+  publisher       String?
+  locationName    String?
+  streetAddress   String?
+  addressCountry  String?
+  addressLocality String?
+  postalCode      String?
+  lang            String?
+}
